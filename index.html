@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Pollthingy</title>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -25,25 +25,22 @@
         
         <!-- TEMPLATES -->
         <script type="text/template" id="polls_template">
-            <ul class="unstyled"></ul>
-            <input type="button" class="btn-large btn-primary" value="Create a new poll" />
-            <ul class="polls"></div>
+            <input type="button" class="new-poll-btn btn-large btn-primary" value="Create a new poll" />
+            <ul class="polls unstyled"></div>
         </script>
         
         <script type="text/template" id="new_poll_template">
             <h2>Create a new poll</h2>
             <p>ullam vel dui tincidunt mi auctor malesuada. Aenean fringilla viverra dapibus. Proin eget lacinia libero. Quisque sodales convallis eleifend. Suspendisse potenti. Nullam mattis, orci a euismod condimentum, sem diam lacinia tellus, ac dignissim mauris odio vel massa. Nulla facilisi. Maecenas condimentum convallis viverra. Donec varius elementum nulla, vel sollicitudin libero dapibus in. Proin venenatis cursus orci, at sagittis lacus tempus et. Fusce commodo, erat quis condimentum vulputate, purus nunc commodo metus, non aliquam odio erat vel est. Integer pulvinar elementum consectetur. </p>
-            <input type="input" placeholder="Question" />
+            <input type="input" id="temp-id" placeholder="ID" /><br />
+            <input type="input" id="question" placeholder="Question" />
             <ul id="answers" class="answers unstyled">
                 <li><input type="input" placeholder="Answer 1" /></li>
+                <li><input type="input" placeholder="Answer 2" /></li>
             </ul>
             <label class="checkbox">Make private?<input type="checkbox"></label>
             <input type="button" class="add-answer btn-info" value="Add answer" />
-            <input type="button" class="btn-primary" value="Create poll" />
-        </script>
-        
-        <script type="text/template" id="answer_template">
-            <li><input type="input" placeholder="Answer 2" /></li>
+            <input type="button" class="create-poll-btn btn-primary" value="Create poll" />
         </script>
         
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
