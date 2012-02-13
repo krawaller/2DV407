@@ -21,22 +21,18 @@
         </div>
         <div class="container">
             <div id="content">
-                <ul class="polls"></ul>
             </div>
-<<<<<<< HEAD
-        </div>       
-=======
         </div>
-        
         <!-- TEMPLATES -->
-        <script type="text/template" id="polls_template">
-            <input type="button" class="new-poll-btn btn-large btn-primary" value="Create a new poll" />
-            <ul class="polls unstyled"></div>
+        <script type="text/template" id="main-template">
+            <a href="#" class="create-poll btn btn-large btn-primary" value="Create new poll"><i class="icon-plus icon-white"></i> Create a poll</a>
+            <ul class="polls unstyled">
+            </ul>
         </script>
         
-        <script type="text/template" id="new_poll_template">
+        <script type="text/template" id="new-poll-template">
             <h2>Create a new poll</h2>
-            <p>ullam vel dui tincidunt mi auctor malesuada. Aenean fringilla viverra dapibus. Proin eget lacinia libero. Quisque sodales convallis eleifend. Suspendisse potenti. Nullam mattis, orci a euismod condimentum, sem diam lacinia tellus, ac dignissim mauris odio vel massa. Nulla facilisi. Maecenas condimentum convallis viverra. Donec varius elementum nulla, vel sollicitudin libero dapibus in. Proin venenatis cursus orci, at sagittis lacus tempus et. Fusce commodo, erat quis condimentum vulputate, purus nunc commodo metus, non aliquam odio erat vel est. Integer pulvinar elementum consectetur. </p>
+            <p>Ullam vel dui tincidunt mi auctor malesuada. Aenean fringilla viverra dapibus. Proin eget lacinia libero. Quisque sodales convallis eleifend. Suspendisse potenti. Nullam mattis, orci a euismod condimentum, sem diam lacinia tellus, ac dignissim mauris odio vel massa. Nulla facilisi. Maecenas condimentum convallis viverra. Donec varius elementum nulla, vel sollicitudin libero dapibus in. Proin venenatis cursus orci, at sagittis lacus tempus et. Fusce commodo, erat quis condimentum vulputate, purus nunc commodo metus, non aliquam odio erat vel est. Integer pulvinar elementum consectetur. </p>
             <input type="input" id="temp-id" placeholder="ID" /><br />
             <input type="input" id="question" placeholder="Question" />
             <ul id="answers" class="answers unstyled">
@@ -48,10 +44,9 @@
             <input type="button" class="create-poll-btn btn-primary" value="Create poll" />
         </script>
         
->>>>>>> origin/master
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/underscore.js"></script>
-        <script type="text/javascript" src="js/backbone.js"></script>
+        <script type="text/javascript" src="js/lib/underscore.js"></script>
+        <script type="text/javascript" src="js/lib/backbone.js"></script>
         <script type="text/javascript" src="js/poll.js"></script>
     </body>
 </html>
