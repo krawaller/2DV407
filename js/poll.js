@@ -2,22 +2,18 @@ var Poll = Backbone.Model.extend({
     defaults : {
         "id": null,
         "question": "",
-        "answers": {},
+        "answers":
+        {
+        },
         "status": false,
         "private": false,
         "date": 1970-01-01
-    },
-    
-    url : function() {
-        // Important! It's got to know where to send its REST calls.
-        // In this case, POST to '/donuts' and PUT to '/donuts/:id'
-        return this.id ? '/polls/' + this.id : '/polls';
     }
 });
 
-var PollView = Backbone.View.extend({     
+var PollsView = Backbone.View.extend({     
     render : function() {
-        console.log("PollView.render");
+        console.log("PollsView.render");
         this.el.innerHTML = "<a href='#poll/" + this.model.get('id') + "'>" + this.model.get('question') + "</a>";
         return this;
     }
@@ -47,14 +43,14 @@ var PollCollectionView = Backbone.View.extend({
     
     add : function( poll ) {
         console.log("PollCollectionView.add");
-        var updatingPollView = new UpdatingPollView({
+        var updatingPollsView = new UpdatingPollsView({
             tagName : 'li',
             model : poll
         });
         
-        this._pollViews.push(updatingPollView);
+        this._pollViews.push(updatingPollsView);
         
-        $(this.el).append(updatingPollView.render().el);
+        $(this.el).append(updatingPollsView.render().el);
     },
     
     render : function() {
@@ -73,9 +69,9 @@ var PollCollectionView = Backbone.View.extend({
     }
 });
 
-var UpdatingPollView = PollView.extend({
+var UpdatingPollsView = PollsView.extend({
     initialize : function( options ) {
-        console.log("UpdatingPollView.initialize");
+        console.log("UpdatingPollsView.initialize");
         this.render = _.bind(this.render, this);
         
         this.model.bind('change:question', this.render);
@@ -112,7 +108,8 @@ var CreatePollView = Backbone.View.extend({
         $('#answers input[type=input]').each(function(index) {
             answers.push($(this).val());
         });
-        poll.set( { id: $("#temp-id").val() , question: $("#question").val() } );
+        
+        poll.set( { 'id': $("#temp-id").val() , 'question': $("#question").val(), 'private': $('#private').is(":checked") } );
         
         $(this.el).undelegate('.create-poll-btn', 'click');
         this.collection.add(poll);
@@ -139,10 +136,12 @@ var Polls = Backbone.Collection.extend({
 
 /** END OF FUNCTIONS **/
 
-var polls = new Polls([
+/**var polls = new Polls([
     { "id": 1, "question": "Wich came first the chicken or the egg?", "answers": {}, "status": true, "private": false, "date": 2012-01-01 },
     { "id": 2, "question": "Was the shovel a groundbreaking invention?", "answers": {}, "status": true, "private": false, "date": 2012-01-01 }
-]);
+]);**/
+
+var polls = new Polls();
 
 var pollCollectionView = new PollCollectionView({
     collection: polls,
@@ -156,9 +155,3 @@ var pollRouter = new PollRouter({
 });
 
 Backbone.history.start();
-
-polls.add([
-    { "id": 3, "question": "Is this the run?", "answers": {}, "status": true, "private": false, "date": 2012-01-01 }
-]);
-
-polls.get(1).set( { "question": "Le change workzie?" } );
