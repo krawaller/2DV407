@@ -58,11 +58,11 @@ var PollCollectionView = Backbone.View.extend({
         var that = this;
         $(this.el).empty();
         
-        var template = _.template( $("#main-template").html() );
+        var template = _.template( $("#index").html() );
         $(this.el).html( template );
         
         _(this._pollViews).each(function( pollView ) {
-            $(that.el).append(pollView.render().el);
+            $('.polls').append(pollView.render().el);
         });
         
         return this;
@@ -88,7 +88,7 @@ var CreatePollView = Backbone.View.extend({
  
     render: function( event ) {
         $(this.el).empty();
-        var template = _.template( $("#new-poll-template").html() );
+        var template = _.template( $("#create-poll").html() );
         $(this.el).html( template );
         return this;
     },
@@ -118,6 +118,22 @@ var CreatePollView = Backbone.View.extend({
     }
 });
 
+var PollView = Backbone.View.extend({
+    el: $('#content'),
+    
+    initialize: function() {
+        console.log("PollView initialized");
+        this.render();
+    },
+ 
+    render: function( event ) {
+        $(this.el).empty();
+        var template = _.template( $("#poll-view").html() );
+        $(this.el).html( template( polls.get( this.id ).attributes ) );
+        return this;
+    },
+});
+
 var PollRouter = Backbone.Router.extend({
     routes : {
         "poll/:id" : "poll"
@@ -125,7 +141,7 @@ var PollRouter = Backbone.Router.extend({
  
     poll : function( id ) {
         console.log("PollRouter.poll")
-        console.log(polls.get(id));
+        new PollView( { collection: polls, id: id } );
     }
 });
 
@@ -136,12 +152,12 @@ var Polls = Backbone.Collection.extend({
 
 /** END OF FUNCTIONS **/
 
-/**var polls = new Polls([
+var polls = new Polls([
     { "id": 1, "question": "Wich came first the chicken or the egg?", "answers": {}, "status": true, "private": false, "date": 2012-01-01 },
     { "id": 2, "question": "Was the shovel a groundbreaking invention?", "answers": {}, "status": true, "private": false, "date": 2012-01-01 }
-]);**/
+]);
 
-var polls = new Polls();
+/**var polls = new Polls();**/
 
 var pollCollectionView = new PollCollectionView({
     collection: polls,

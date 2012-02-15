@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Pollthingy</title>
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
@@ -23,14 +23,15 @@
             <div id="content">
             </div>
         </div>
-        <!-- TEMPLATES -->
-        <script type="text/template" id="main-template">
+        
+        <!-- Templates -->
+        <script type="text/template" id="index">
             <a href="#" class="create-poll btn btn-large btn-primary" value="Create new poll"><i class="icon-plus icon-white"></i> Create a poll</a>
             <ul class="polls unstyled">
             </ul>
         </script>
         
-        <script type="text/template" id="new-poll-template">
+        <script type="text/template" id="create-poll">
             <h2>Create a poll</h2>
             <input type="input" id="temp-id" placeholder="ID" /><br />
             <input type="input" id="question" placeholder="Question" />
@@ -43,9 +44,18 @@
             <a href="#" class="create-poll-btn btn btn-primary"><i class="icon-ok icon-white"></i> Create poll</a>
         </script>
         
+        <script type="text/template" id="poll-view">
+            <h2><%= question %></h2>
+            <%= id %>
+        </script>
+        
+        <!-- Libraries -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/lib/underscore.js"></script>
-        <script type="text/javascript" src="js/lib/backbone.js"></script>
-        <script type="text/javascript" src="js/poll.js"></script>
+        <script type="text/javascript" src="assets/js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/lib/underscore.js"></script>
+        <script type="text/javascript" src="assets/js/lib/backbone.js"></script>
+        
+        <!-- Appliaction -->
+        <script type="text/javascript" src="app/modules/poll.js"></script>
     </body>
 </html>
