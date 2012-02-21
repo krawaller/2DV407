@@ -11,7 +11,7 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="/Poll">
+                    <a class="brand" href="/2DV407">
                         Pollthingy
                     </a>
                     <ul class="nav">
@@ -27,13 +27,12 @@
         <!-- Templates -->
         <script type="text/template" id="index">
             <a href="#poll/create" class="create-poll btn btn-large btn-primary" value="Create new poll"><i class="icon-plus icon-white"></i> Create a poll</a>
-            <ul class="polls unstyled">
+            <ul id="polls" class="unstyled">
             </ul>
         </script>
         
         <script type="text/template" id="create-poll">
             <h2>Create a poll</h2>
-            <input type="input" id="temp-id" placeholder="ID" /><br />
             <input type="input" id="question" placeholder="Question" />
             <ul id="answers" class="answers unstyled">
                 <li><input type="input" placeholder="Answer 1" /></li>
@@ -48,14 +47,5 @@
             <h2><%= question %></h2>
             <%= id %>
         </script>
-        
-        <!-- Libraries -->
-        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/js/lib/bootstrap.min.js"></script>
-        <script type="text/javascript" src="assets/js/lib/underscore.js"></script>
-        <script type="text/javascript" src="assets/js/lib/backbone.js"></script>
-        
-        <!-- Appliaction -->
-        <!--<script type="text/javascript" src="app/modules/poll.js"></script>-->
     </body>
 </html>

@@ -1,4 +1,7 @@
-define( ['order!assets/js/lib/underscore'],
+define([
+        'order!assets/js/lib/underscore'
+    ],
+    
     function( x ) {
         _.templateSettings = {
           interpolate : /\{\{(.+?)\}\}/g

@@ -1,4 +1,9 @@
-define(['Backbone', 'Underscore', 'jQuery'],
+define([
+        'Backbone',
+        'Underscore',
+        'jQuery'
+    ],
+    
     function ( Backbone, _, $ ) {
 
         BaseView = Backbone.View.extend({            
