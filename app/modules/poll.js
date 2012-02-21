@@ -136,9 +136,21 @@ var PollView = Backbone.View.extend({
 
 var PollRouter = Backbone.Router.extend({
     routes : {
+        "" : "main",
+        "poll/create" : "create",
         "poll/:id" : "poll"
     },
- 
+    
+    main : function () {
+        console.log("PollRouter.main");
+        pollCollectionView.render();
+    },
+    
+    create : function () {
+        console.log("PollRouter.create");
+        new CreatePollView();
+    },
+    
     poll : function( id ) {
         console.log("PollRouter.poll")
         new PollView( { collection: polls, id: id } );
@@ -152,12 +164,7 @@ var Polls = Backbone.Collection.extend({
 
 /** END OF FUNCTIONS **/
 
-var polls = new Polls([
-    { "id": 1, "question": "Wich came first the chicken or the egg?", "answers": {}, "status": true, "private": false, "date": 2012-01-01 },
-    { "id": 2, "question": "Was the shovel a groundbreaking invention?", "answers": {}, "status": true, "private": false, "date": 2012-01-01 }
-]);
-
-/**var polls = new Polls();**/
+var polls = new Polls();
 
 var pollCollectionView = new PollCollectionView({
     collection: polls,

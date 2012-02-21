@@ -5,16 +5,16 @@
         <title>Pollthingy</title>
         <link href="assets/css/bootstrap.css" rel="stylesheet">
         <link href="assets/css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="assets/js/lib/require.js" data-main="main"></script>
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="index.html">
+                    <a class="brand" href="/Poll">
                         Pollthingy
                     </a>
                     <ul class="nav">
-                        <li><a href="#">Derp?</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,7 +26,7 @@
         
         <!-- Templates -->
         <script type="text/template" id="index">
-            <a href="#" class="create-poll btn btn-large btn-primary" value="Create new poll"><i class="icon-plus icon-white"></i> Create a poll</a>
+            <a href="#poll/create" class="create-poll btn btn-large btn-primary" value="Create new poll"><i class="icon-plus icon-white"></i> Create a poll</a>
             <ul class="polls unstyled">
             </ul>
         </script>
@@ -50,12 +50,12 @@
         </script>
         
         <!-- Libraries -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="assets/js/lib/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/js/lib/underscore.js"></script>
         <script type="text/javascript" src="assets/js/lib/backbone.js"></script>
         
         <!-- Appliaction -->
-        <script type="text/javascript" src="app/modules/poll.js"></script>
+        <!--<script type="text/javascript" src="app/modules/poll.js"></script>-->
     </body>
 </html>
