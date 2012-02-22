@@ -5,20 +5,10 @@ define([
     function ( Backbone ) {
         PollModel = Backbone.Model.extend({
             defaults : {
+                "id": null,
                 "question": "",
-                "answers":
-                {
-                    "answer":
-                    {
-                        "answer": "",
-                        "votes": 0
-                    },
-                    "answer":
-                    {
-                        "answer": "",
-                        "votes": 0
-                    },
-                },
+                "answer1": "",
+                "answer2": "",
                 "status": false,
                 "private": false,
                 "date": 1970-01-01

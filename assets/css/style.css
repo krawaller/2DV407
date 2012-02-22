@@ -5,3 +5,29 @@ body {
 #content {
     padding: 10px;
 }
+
+#content #polls {
+    margin-top: 20px;
+}
+#content #polls li {
+    font-size: 18px;
+    padding: 10px;
+}
+
+#content #polls li:hover {
+    background: #D8D8D8;
+}
+
+#content #answers {
+    background: #D8D8D8;
+}
+
+#content #answers .answer1 { 
+    background: #7FAF1B;
+    height: 100px;
+}
+
+#content #answers .answer2 {
+    background: #A40802;
+    height: 100px;
+}

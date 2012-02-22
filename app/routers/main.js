@@ -4,6 +4,7 @@ define([
         'jQuery',
         'MainView',
         'CreateView',
+        'PollView',
         'PollCollection'
     ],
     
@@ -11,7 +12,8 @@ define([
         var MainRouter = Backbone.Router.extend({
             routes : {
                 "" : "main",
-                "poll/create" : "create"
+                "poll/create" : "create",
+                "poll/:id" : "poll"
             },
             
             collections: {},
@@ -19,31 +21,45 @@ define([
             views: {},
             
             initialize: function () {
+                console.log("Router initialize");
                 _.bindAll( this, 'main' );
                 polls = new PollCollection;
                 polls.fetch();
                 
                 this.collections.polls = polls;
                 
-                mainview = new MainView( { polls: polls } );
-                $("#content").append( mainview.el );
+                mainView = new MainView( { collection: polls } );
+                $("#content").append( mainView.el );
                 
-                this.views.main = mainview;
+                this.views.main = mainView;
                 
-                createview = new CreateView( { collection: polls } );
-                $("#content").append( createview.el );
+                createView = new CreateView( { collection: polls } );
+                $("#content").append( createView.el );
                 
-                this.views.create = createview;
+                this.views.create = createView;
+                
+                pollView = new PollView();
+                $("#content").append( pollView.el );
+                
+                this.views.poll = pollView;
             },
             
             main: function() {
+                console.log("Router main");
                 this.setBody( this.views.main );
                 this.view.render();
             },
-    
+            
             create : function () {
+                console.log("Router create");
                 this.setBody( this.views.create );
                 this.view.render();
+            },
+            
+            poll : function( id ) {
+                console.log("Router poll");
+                this.setBody( this.views.poll );
+                this.view.render(id);
             },
             
             setBody: function(view) {

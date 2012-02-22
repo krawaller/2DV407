@@ -35,17 +35,20 @@
             <h2>Create a poll</h2>
             <input type="input" id="question" placeholder="Question" />
             <ul id="answers" class="answers unstyled">
-                <li><input type="input" placeholder="Answer 1" /></li>
-                <li><input type="input" placeholder="Answer 2" /></li>
+                <li><input type="input" id="answer1" placeholder="Answer 1" /></li>
+                <li><input type="input" id="answer2" placeholder="Answer 2" /></li>
             </ul>
             <label class="checkbox">Make private?<input type="checkbox" id="private"></label>
-            <a href="#" class="add-answer btn btn-info"><i class="icon-plus icon-white"></i> Add answer</a>
-            <a href="#" class="create-poll-btn btn btn-primary"><i class="icon-ok icon-white"></i> Create poll</a>
+            <a href="" class="add-answer btn btn-info"><i class="icon-plus icon-white"></i> Add answer</a>
+            <a href="" class="create-poll-btn btn btn-primary"><i class="icon-ok icon-white"></i> Create poll</a>
         </script>
         
         <script type="text/template" id="poll-view">
-            <h2><%= question %></h2>
-            <%= id %>
+            <h1>{{question}}</h1>
+            <div id="answers">
+                <div class="answer1" style="width: 80%">{{answer1}}</div>
+                <div class="answer2" style="width: 20%">{{answer2}}</div>
+            </div>
         </script>
     </body>
 </html>

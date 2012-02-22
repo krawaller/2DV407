@@ -17,11 +17,10 @@ require.config({
         MainRouter : 'app/routers/main',
         
         //Views
-        BaseView : 'app/views/baseview',
-        MainView : 'app/views/mainview',
-        PollListView : 'app/views/polllistview',
-        PollListentryView : 'app/views/polllistentryview',
-        CreateView : 'app/views/createview'
+        MainView : 'app/views/main',
+        PollListView : 'app/views/polllist',
+        CreateView : 'app/views/create',
+        PollView : 'app/views/poll'
     }
 });
 
