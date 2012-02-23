@@ -9,9 +9,9 @@ define([
         PollListView = Backbone.View.extend({
             initialize: function( options ) {
                 console.log("PollListView initialize");
-                this.template = _.template("<h1>Polls</h1>");
                 _.bindAll(this, 'render', 'addAll', 'addOne');
                 this.collection.bind('add', this.addOne);
+                this.lol = $('#ended-polls');
             },
             
             render: function() {
@@ -28,7 +28,13 @@ define([
             
             addOne: function( model ) {
                 console.log("PollListView addOne");
-                $(this.el).append("<li><a href='#poll/" + model.attributes.id + "'>" + model.attributes.question + "</a></li>");
+                if (!model.attributes.private && model.attributes.status == true) {
+                    console.log("PollListView addOne public active");
+                    $(this.el).append("<li><a href='#poll/" + model.attributes.id + "'>" + model.attributes.question + "</a></li>");
+                } else if (model.attributes.status == false) {
+                    console.log("PollListView addOne public ended");
+                    $(this.el).append("<li><a href='#poll/" + model.attributes.id + "'>" + model.attributes.question + "</a> (Ended)</li>");
+                }
                 model.save();
             }
         });

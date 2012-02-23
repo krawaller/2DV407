@@ -1,0 +1,7 @@
+TODO
+
+1. Answer-objekt
+2. Vote on poll
+3. Remove poll
+4. End poll
+5. Add answer

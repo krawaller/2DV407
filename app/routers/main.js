@@ -59,7 +59,7 @@ define([
             poll : function( id ) {
                 console.log("Router poll");
                 this.setBody( this.views.poll );
-                this.view.render(id);
+                this.view.render( polls.get( id ) );
             },
             
             setBody: function(view) {

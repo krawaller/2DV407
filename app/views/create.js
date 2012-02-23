@@ -23,7 +23,20 @@ define([
             
             createPoll: function ( event ) {
                 console.log("CreateView createPoll");
-                this.collection.add( new PollModel( { question: this.$("#question").val(), answer1: this.$("#answer1").val(), answer2: this.$("#answer2").val() }) );
+                
+                date = new Date();
+                month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1));
+                day = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
+                today = date.getFullYear() + '-' + month + '-' + day;
+                
+                this.collection.add( new PollModel( {
+                                                        'id': (this.collection.length + 1),
+                                                        'question': this.$("#question").val(),
+                                                        'answer1': this.$("#answer1").val(),
+                                                        'answer2': this.$("#answer2").val(),
+                                                        'private': this.$('#private').is(":checked"),
+                                                        'date': today
+                                                    }));
             },
             
             render: function () {

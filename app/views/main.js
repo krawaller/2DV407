@@ -15,9 +15,13 @@ define([
             },
             
             render: function () {
-                console.log("MainView render")
+                console.log("MainView render");
                 $(this.el).html( this.template() );
                 this.collection.fetch();
+                this.collection.comparator = function(model) {
+                    return -model.get('id');
+                }
+                this.collection.sort();
                 pollListView = new PollListView( { collection: this.collection } );
                 pollListView.render();
                 this.$("#polls").html(pollListView.el);

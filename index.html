@@ -27,6 +27,7 @@
         <!-- Templates -->
         <script type="text/template" id="index">
             <a href="#poll/create" class="create-poll btn btn-large btn-primary" value="Create new poll"><i class="icon-plus icon-white"></i> Create a poll</a>
+            
             <ul id="polls" class="unstyled">
             </ul>
         </script>
@@ -44,11 +45,17 @@
         </script>
         
         <script type="text/template" id="poll-view">
-            <h1>{{question}}</h1>
-            <div id="answers">
-                <div class="answer1" style="width: 80%">{{answer1}}</div>
-                <div class="answer2" style="width: 20%">{{answer2}}</div>
+            <h1>{{question}} <small>Created: {{date}} Total votes: {{answer1votes + answer2votes}} {{status ? '' : '(Ended)'}}</small></h1>
+            <div id="poll-answers">
+                <div id="answer1-container">
+                    <div id="answer1" style="width: {{answer1votes > 0 ? answer1votes / (answer1votes + answer2votes) * 100 : '0'}}%"><h2>{{answer1}}</h2></div>
+                </div>
+                <div id="answer2-container">
+                    <div id="answer2" style="width: {{answer2votes > 0 ? answer2votes / (answer1votes + answer2votes) * 100 : '0'}}%"><h2>{{answer2}}</h2></div>
+                </div>
             </div>
+            <input type="button" id="end-poll" class="btn-info" value="End poll" />
+            <input type="button" id="remove-poll" class="btn-danger" value="Remove poll" />
         </script>
     </body>
 </html>

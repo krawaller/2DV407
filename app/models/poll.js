@@ -8,8 +8,10 @@ define([
                 "id": null,
                 "question": "",
                 "answer1": "",
+                "answer1votes": 0,
                 "answer2": "",
-                "status": false,
+                "answer2votes": 0,
+                "status": true,
                 "private": false,
                 "date": 1970-01-01
             }

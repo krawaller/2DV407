@@ -18,16 +18,28 @@ body {
     background: #D8D8D8;
 }
 
-#content #answers {
+#content #poll-answers {
     background: #D8D8D8;
+    margin: 10px 0;
 }
 
-#content #answers .answer1 { 
+#content #answer1-container, #content #answer2-container {
+    width: 100%;
+    height: 100px;
+}
+
+#content #poll-answers #answer1-container #answer1 { 
     background: #7FAF1B;
     height: 100px;
 }
 
-#content #answers .answer2 {
+#content #poll-answers #answer2-container #answer2 { 
     background: #A40802;
     height: 100px;
+}
+
+#content #poll-answers #answer1-container #answer1 h2, #content #poll-answers #answer2-container #answer2 h2 {
+    color: #fff;
+    text-transform: capitalize;
+    margin: 0 5px;
 }
