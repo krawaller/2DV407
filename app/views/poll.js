@@ -2,10 +2,11 @@ define([
         'Backbone',
         'Underscore',
         'jQuery',
-        'PollModel'
+        'PollModel',
+        'AnswerModel'
     ],
     
-    function ( Backbone, _, $, PollModel ){
+    function ( Backbone, _, $, PollModel, AnswerModel ){
 
         PollView = Backbone.View.extend({
             initialize: function ( options ) {
@@ -45,7 +46,7 @@ define([
             render: function ( poll ) {
                 console.log("PollView render");
                 this.poll = poll;
-                $(this.el).html( this.template( poll.attributes ) );
+                $(this.el).html( this.template( poll.toJSON() ) );
             }
         });
 

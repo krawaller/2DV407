@@ -8,10 +8,12 @@ require.config({
         // Application
         // Collections
         PollCollection : 'app/collections/polls',
+        AnswerCollection : 'app/collections/answers',
         
         
         // Models
         PollModel : 'app/models/poll',
+        AnswerModel : 'app/models/answer',
         
         // Routers
         MainRouter : 'app/routers/main',

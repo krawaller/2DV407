@@ -43,3 +43,7 @@ body {
     text-transform: capitalize;
     margin: 0 5px;
 }
+
+h2 small {
+    color: #fff;
+}

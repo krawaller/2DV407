@@ -5,10 +5,11 @@ define([
         'MainView',
         'CreateView',
         'PollView',
-        'PollCollection'
+        'PollCollection',
+        'AnswerCollection'
     ],
     
-    function( Backbone, _, $, MainView ) {
+    function( Backbone, _, $, MainView, CreateView, PollView, PollCollection, AnswerCollection ) {
         var MainRouter = Backbone.Router.extend({
             routes : {
                 "" : "main",
@@ -16,9 +17,9 @@ define([
                 "poll/:id" : "poll"
             },
             
-            collections: {},
+            collections: { },
             
-            views: {},
+            views: { },
             
             initialize: function () {
                 console.log("Router initialize");
@@ -35,7 +36,6 @@ define([
                 
                 createView = new CreateView( { collection: polls } );
                 $("#content").append( createView.el );
-                
                 this.views.create = createView;
                 
                 pollView = new PollView();

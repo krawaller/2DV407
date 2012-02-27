@@ -3,18 +3,27 @@ define([
     ],
     
     function ( Backbone ) {
-        PollModel = Backbone.Model.extend({
+        PollModel = Backbone.RelationalModel.extend({
             defaults : {
                 "id": null,
                 "question": "",
-                "answer1": "",
-                "answer1votes": 0,
-                "answer2": "",
-                "answer2votes": 0,
                 "status": true,
                 "private": false,
                 "date": 1970-01-01
-            }
+            },
+            
+            relations: [
+                {
+                    type: Backbone.HasMany, 
+                    key: 'answers',
+                    relatedModel: 'AnswerModel',
+                    includeInJSON: Backbone.Model.prototype.idAttribute,
+                    collectionType: 'AnswerCollection',
+                    reverseRelation: {
+                        key: 'poll'
+                    }
+                }
+            ]
         });
 
         return PollModel;

@@ -10,6 +10,7 @@ define([
             initialize: function ( options ) {
                 console.log("CreateView initialize");
                 this.template = _.template( $("#create-poll").html() );
+                this.answers = options.answers;
             },
     
             events: {
@@ -24,19 +25,25 @@ define([
             createPoll: function ( event ) {
                 console.log("CreateView createPoll");
                 
+                answer = new AnswerModel( {
+                    'id': 'answer-1',
+                    'answer': this.$("#answer1").val()
+                });
+                
                 date = new Date();
                 month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1));
                 day = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
                 today = date.getFullYear() + '-' + month + '-' + day;
                 
-                this.collection.add( new PollModel( {
-                                                        'id': (this.collection.length + 1),
-                                                        'question': this.$("#question").val(),
-                                                        'answer1': this.$("#answer1").val(),
-                                                        'answer2': this.$("#answer2").val(),
-                                                        'private': this.$('#private').is(":checked"),
-                                                        'date': today
-                                                    }));
+                poll = new PollModel( {
+                                        'id': (this.collection.length + 1),
+                                        'question': this.$("#question").val(),
+                                        'private': this.$('#private').is(":checked"),
+                                        'date': today,
+                                        'answers': ['answer-1']
+                                      } );
+                
+                this.collection.add( poll );
             },
             
             render: function () {

@@ -11,7 +11,7 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="/2DV407">
+                    <a class="brand" href="#">
                         Pollthingy
                     </a>
                     <ul class="nav">
@@ -45,13 +45,13 @@
         </script>
         
         <script type="text/template" id="poll-view">
-            <h1>{{question}} <small>Created: {{date}} Total votes: {{answer1votes + answer2votes}} {{status ? '' : '(Ended)'}}</small></h1>
+            <h1>{{question}} <small>Created: {{date}} Total votes:  {{status ? '' : '(Ended)'}}</small></h1>
             <div id="poll-answers">
                 <div id="answer1-container">
-                    <div id="answer1" style="width: {{answer1votes > 0 ? answer1votes / (answer1votes + answer2votes) * 100 : '0'}}%"><h2>{{answer1}}</h2></div>
+                    <div id="answer1" style="width: 50%"><h2>answer<small> votes</small></h2></div>
                 </div>
                 <div id="answer2-container">
-                    <div id="answer2" style="width: {{answer2votes > 0 ? answer2votes / (answer1votes + answer2votes) * 100 : '0'}}%"><h2>{{answer2}}</h2></div>
+                    <div id="answer2" style="width: 50%"><h2>answer<small> votes</small></h2></div>
                 </div>
             </div>
             <input type="button" id="end-poll" class="btn-info" value="End poll" />
