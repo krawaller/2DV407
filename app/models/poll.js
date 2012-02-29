@@ -1,8 +1,10 @@
 define([
-        'Backbone'
+        'Backbone',
+        'AnswerModel',
+        'AnswerCollection'
     ],
     
-    function ( Backbone ) {
+    function ( Backbone,AnswerModel,AnswerCollection ) {
         PollModel = Backbone.RelationalModel.extend({
             defaults : {
                 "id": null,
@@ -16,9 +18,9 @@ define([
                 {
                     type: Backbone.HasMany, 
                     key: 'answers',
-                    relatedModel: 'AnswerModel',
+                    relatedModel: AnswerModel,
                     includeInJSON: Backbone.Model.prototype.idAttribute,
-                    collectionType: 'AnswerCollection',
+                    collectionType: AnswerCollection,
                     reverseRelation: {
                         key: 'poll'
                     }
